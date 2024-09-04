@@ -1,10 +1,14 @@
-package Task1;
+package Task1.Enemies;
+
+import Task1.Heroes.Hero;
 
 public class Enemy implements Mortal {
     private int health;
+    private int damage;
 
     public Enemy(int health) {
         this.health = health;
+        damage = 8;
     }
 
     public int getHealth() {
@@ -25,5 +29,11 @@ public class Enemy implements Mortal {
             return true;
         } else
             return false;
+    }
+
+    @Override
+    public void attackHero(Hero hero) {
+        System.out.println("Враг атакует " + hero.getName());
+        hero.setHealth(hero.getHealth()-damage);
     }
 }
