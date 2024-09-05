@@ -1,6 +1,9 @@
 package Collection;
 
-public class MyCollection<T> {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MyCollection<T> implements MyList {
 
     private final T[] obj;
     private int size;
@@ -13,13 +16,20 @@ public class MyCollection<T> {
         return size;
     }
 
-    public void add(T object) {
-        obj[size] = object;
-        size++;
+    public boolean contains(Object t) {
+        for (T t1 : obj)
+            if (t1.equals(t)) {
+                return true;
+            }
+        return false;
     }
 
     public T get(int number) {
         return obj[number];
     }
 
+    public void add(Object t) {
+        obj[size] = (T) t;
+        size++;
+    }
 }
