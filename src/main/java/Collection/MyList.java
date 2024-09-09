@@ -1,8 +1,5 @@
 package Collection;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public interface MyList<T> {
 
     public boolean contains(T t);

@@ -1,10 +1,6 @@
 package Collection;
 
-import java.util.Iterator;
-import java.util.Spliterator;
-import java.util.function.Consumer;
-
-public class MyCollection<T> implements MyList, Iterable {
+public class MyCollection<T> implements MyList {
 
     private T[] obj;
     private int size;
@@ -35,7 +31,7 @@ public class MyCollection<T> implements MyList, Iterable {
     @Override
     public void add(Object t) {
         if (getSize() == obj.length) {
-            this.grow();
+            grow();
         }
         obj[size] = (T) t;
         size++;
@@ -45,24 +41,8 @@ public class MyCollection<T> implements MyList, Iterable {
     public void grow() {
         T[] newArray = (T[]) new Object[obj.length * 2];
         for (int i = 0; i < obj.length; i++) {
-            obj[i]=newArray[i];
+            obj[i] = newArray[i];
         }
         obj = newArray;
-        newArray = null;
-    }
-
-    @Override
-    public Iterator iterator() {
-        return null;
-    }
-
-    @Override
-    public void forEach(Consumer action) {
-        Iterable.super.forEach(action);
-    }
-
-    @Override
-    public Spliterator spliterator() {
-        return Iterable.super.spliterator();
     }
 }
